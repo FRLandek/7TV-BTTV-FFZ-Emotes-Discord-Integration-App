@@ -15,7 +15,7 @@ This Discord app allows you to grab any 7TV/BTTV/FFZ Twitch emote from any Twitc
 
 ### ➡️Installation
 
-here
+Soon
 
 <hr>
 
@@ -24,3 +24,4 @@ here
 - 7TV, BetterTTV, FrankerFaceZ
 - chuckxD (github) - useful list of FFZ/BTTV api endpoints https://gist.github.com/chuckxD/377211b3dd3e8ca8dc505500938555eb
 - api.ivr.fi - used for getting Twitch user id from channel name without the need of Twitch's official api since that requires setup
+- ChatGPT - research for every little thing would've been hard without it
