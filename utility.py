@@ -29,6 +29,7 @@ class utility:
             return success, ""
         
     def twitchID(self, user):
-        url = f"https://api.ivr.fi/v2/twitch/user?login={user}"
+        #url = f"https://api.ivr.fi/v2/twitch/user?login={user}"
+        url = f"https://api.twitch.tv/helix/users?login={user}"
         data = self.callAPI(url)
         return data[0]["id"]
