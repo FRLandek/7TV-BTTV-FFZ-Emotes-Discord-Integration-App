@@ -7,26 +7,26 @@ class bttv:
 
     def emoteList(name, id):
         chunks = []
-        list = f"**{name}'s Emotes:** "
-        count = 0
         data = util.callAPI(f"https://api.betterttv.net/3/cached/users/twitch/{id}")
+        set_id = data["id"]
+        list = f"**{name}'s BTTV Emotes (Visual List: https://betterttv.com/users/{set_id}):** "
+
         for i in data["channelEmotes"]:
-            count += 1
-            list += "\n-" + i["code"]
-            if count == 70:
-                count = 0
+            if len(list) + len(i["code"]) > 1900:
                 chunks.append(list)
-                list = f"**{name}'s Emotes:** "
-        count = 0
-        for i in data["sharedEmotes"]:
-            count += 1
+                list = f"**{name}'s BTTV Emotes (Visual List: https://betterttv.com/users/{set_id}):** "
             list += "\n-" + i["code"]
-            if count == 70:
-                count = 0
-                chunks.append(list)
-                list = f"**{name}'s Emotes:** "
         if list:
             chunks.append(list)
+
+        for i in data["sharedEmotes"]:
+            if len(list) + len(i["code"]) > 1900:
+                chunks.append(list)
+                list = f"**{name}'s BTTV Emotes (Visual List: https://betterttv.com/users/{set_id}):** "
+            list += "\n-" + i["code"]
+        if list:
+            chunks.append(list)
+
         return chunks
     
     def globalEmoteList():
@@ -37,7 +37,7 @@ class bttv:
         for i in data:
             count += 1
             list += "\n-" + i["code"]
-            if count == 70:
+            if count == 60:
                 count = 0
                 chunks.append(list)
                 list = f"**Global Emotes:** "

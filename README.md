@@ -11,6 +11,8 @@ This Discord app allows you to grab any 7TV/BTTV/FFZ Twitch emote from any Twitc
 - List all emotes from any Twitch channel
 - Modify the emotes with BTTV emote effects
 
+**No install link since I can't be letting anyone use my computer's processing, however installation is easy and free, shown below**
+
 <hr>
 
 ### ➡️Installation
@@ -21,7 +23,7 @@ Soon
 
 ### ➡️Credits
 
-- 7TV, BetterTTV, FrankerFaceZ
+- 7TV, BetterTTV, FrankerFaceZ - emote services
+- discord.py - framework for making this app in python
 - chuckxD (github) - useful list of FFZ/BTTV api endpoints https://gist.github.com/chuckxD/377211b3dd3e8ca8dc505500938555eb
 - api.ivr.fi - used for getting Twitch user id from channel name without the need of Twitch's official api since that requires setup
-- ChatGPT - research for every little thing would've been hard without it
