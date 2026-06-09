@@ -1,4 +1,5 @@
-import utility
+#import scripts.utility as utility\
+from scripts import utility
 
 util = utility.utility()
 

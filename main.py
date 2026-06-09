@@ -1,7 +1,7 @@
 import discord
 from discord import app_commands
-import utility
-import bttv, ffz, seventv
+import scripts.utility as utility
+import scripts.bttv as bttv, scripts.ffz as ffz, scripts.seventv as seventv
 from typing import Optional
 
 util = utility.utility()
@@ -117,7 +117,8 @@ async def emote(
     channel: str, 
     emote_name: str, 
     emote_source: Optional[app_commands.Choice[str]], 
-    size: Optional[app_commands.Choice[str]]
+    size: Optional[app_commands.Choice[str]],
+    mention_user: Optional[discord.User]
     ):
     await interaction.response.defer()
 
@@ -154,6 +155,9 @@ async def emote(
         elif size.value == "small" or size.value == "tiny":     s = "1x"
 
         await interaction.followup.send(ffz.findEmote(userID, emote_name, s), ephemeral=True)
+
+    if mention_user:
+        await interaction.followup.send(mention_user.mention)
 #---------------------------------------------------------------------------------------------------------------#
 
 # #LIST BTTV GLOBAL EMOTES
