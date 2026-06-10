@@ -3,6 +3,14 @@ from discord import app_commands
 import scripts.utility as utility
 import scripts.bttv as bttv, scripts.ffz as ffz, scripts.seventv as seventv
 from typing import Optional
+import json
+
+TOKEN = ""
+ACTIVITY = ""
+with open("config.json", "r") as file:
+    data = json.load(file)
+    TOKEN = data["token"]
+    ACTIVITY = data["activity"]
 
 util = utility.utility()
 bttv = bttv.bttv
@@ -16,11 +24,10 @@ client = discord.Client(intents=intents)
 
 tree = app_commands.CommandTree(client)
 
-
-
 @client.event
 async def on_ready():
     await tree.sync()
+    await client.change_presence(activity=discord.Game(ACTIVITY))
     print(f'We have logged in as {client.user}')
 
 @client.event
@@ -188,5 +195,4 @@ async def emote(
 
 
 
-token = input("Enter token: ")
-client.run(token)
+client.run(TOKEN)
